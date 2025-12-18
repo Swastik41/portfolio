@@ -5,7 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { DATA } from "@/lib/data";
-import { Mail, Github, Linkedin } from "lucide-react";
+import { Mail, Github, Linkedin, MapPin, Phone, ArrowRight } from "lucide-react";
 
 export default function Contact() {
   const { toast } = useToast();
@@ -24,98 +24,131 @@ export default function Contact() {
     setFormData({ name: "", email: "", message: "" });
   };
 
+  const contactMethods = [
+    {
+      icon: Mail,
+      label: "Email",
+      value: DATA.socials.email,
+      href: `mailto:${DATA.socials.email}`
+    },
+    {
+      icon: Github,
+      label: "GitHub",
+      value: "github.com",
+      href: DATA.socials.github
+    },
+    {
+      icon: Linkedin,
+      label: "LinkedIn",
+      value: "linkedin.com",
+      href: DATA.socials.linkedin
+    }
+  ];
+
   return (
     <section className="section-container pt-32">
+      {/* Page Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        viewport={{ once: true }}
-        className="mb-12 flex items-center gap-3"
+        className="mb-16 text-center"
       >
-        <div className="h-1 w-8 bg-primary"></div>
-        <h1 className="text-4xl md:text-5xl font-bold text-white">
-          Get In Touch
-        </h1>
+        <div className="mb-6 flex items-center justify-center gap-3">
+          <div className="h-1 w-8 bg-primary"></div>
+          <h1 className="text-4xl md:text-5xl font-bold text-white">
+            Get In Touch
+          </h1>
+          <div className="h-1 w-8 bg-primary"></div>
+        </div>
+        <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          Have a project in mind or just want to say hello? I'd love to hear from you. Reach out and let's create something amazing together.
+        </p>
       </motion.div>
 
-      <div className="grid md:grid-cols-2 gap-12 max-w-4xl">
+      {/* Main Content Grid */}
+      <div className="grid lg:grid-cols-3 gap-12 mb-20">
+        {/* Contact Information */}
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
+          className="lg:col-span-1 space-y-6"
         >
-          <p className="text-lg text-gray-300 mb-8 leading-relaxed">
-            I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hello, feel free to reach out!
-          </p>
+          <div className="bg-card/40 border border-gray-800 rounded-lg p-8">
+            <h3 className="text-2xl font-bold text-white mb-8">Contact Info</h3>
 
-          <div className="space-y-6">
-            <a
-              href={`mailto:${DATA.socials.email}`}
-              className="flex items-center gap-4 p-4 bg-card/60 border border-gray-800 rounded-sm hover:border-primary hover:shadow-lg hover:shadow-red-900/30 transition-all group"
-            >
-              <Mail className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-              <div>
-                <p className="text-sm text-gray-500">Email</p>
-                <p className="font-semibold text-white">{DATA.socials.email}</p>
-              </div>
-            </a>
+            {/* Contact Methods */}
+            <div className="space-y-6">
+              {contactMethods.map((method, index) => {
+                const Icon = method.icon;
+                return (
+                  <motion.a
+                    key={index}
+                    href={method.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    className="flex items-center gap-4 p-4 bg-gray-900/50 rounded-lg hover:bg-gray-900 hover:border-primary border border-transparent transition-all group"
+                  >
+                    <div className="p-2 bg-primary/20 rounded-lg group-hover:bg-primary/30 transition-colors">
+                      <Icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-xs text-gray-500 font-semibold">{method.label}</p>
+                      <p className="text-white group-hover:text-primary transition-colors font-medium">
+                        {method.value}
+                      </p>
+                    </div>
+                    <ArrowRight className="w-4 h-4 text-gray-600 group-hover:text-primary transition-colors ml-auto" />
+                  </motion.a>
+                );
+              })}
+            </div>
 
-            <a
-              href={DATA.socials.github}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-4 p-4 bg-card/60 border border-gray-800 rounded-sm hover:border-primary hover:shadow-lg hover:shadow-red-900/30 transition-all group"
-            >
-              <Github className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-              <div>
-                <p className="text-sm text-gray-500">GitHub</p>
-                <p className="font-semibold text-white">github.com</p>
+            {/* Status Badge */}
+            <div className="mt-8 pt-8 border-t border-gray-800">
+              <div className="flex items-center gap-2">
+                <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
+                <p className="text-sm text-gray-400">
+                  Available for freelance & full-time projects
+                </p>
               </div>
-            </a>
-
-            <a
-              href={DATA.socials.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="flex items-center gap-4 p-4 bg-card/60 border border-gray-800 rounded-sm hover:border-primary hover:shadow-lg hover:shadow-red-900/30 transition-all group"
-            >
-              <Linkedin className="w-6 h-6 text-primary group-hover:scale-110 transition-transform" />
-              <div>
-                <p className="text-sm text-gray-500">LinkedIn</p>
-                <p className="font-semibold text-white">linkedin.com</p>
-              </div>
-            </a>
+            </div>
           </div>
         </motion.div>
 
+        {/* Contact Form */}
         <motion.form
           onSubmit={handleSubmit}
           initial={{ opacity: 0, x: 20 }}
           whileInView={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="space-y-4 bg-card/60 border border-gray-800 rounded-sm p-6 md:p-8"
+          className="lg:col-span-2 space-y-6 bg-card/40 border border-gray-800 rounded-lg p-8 md:p-12"
         >
           <div>
-            <label htmlFor="name" className="text-sm font-medium text-white block mb-2">
-              Name
+            <label htmlFor="name" className="text-sm font-semibold text-white block mb-3">
+              Full Name
             </label>
             <Input
               id="name"
               type="text"
-              placeholder="Your name"
+              placeholder="John Doe"
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               required
-              className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-500"
+              className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-600 focus:border-primary transition-colors"
             />
           </div>
 
           <div>
-            <label htmlFor="email" className="text-sm font-medium text-white block mb-2">
-              Email
+            <label htmlFor="email" className="text-sm font-semibold text-white block mb-3">
+              Email Address
             </label>
             <Input
               id="email"
@@ -124,32 +157,70 @@ export default function Contact() {
               value={formData.email}
               onChange={(e) => setFormData({ ...formData, email: e.target.value })}
               required
-              className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-500"
+              className="bg-gray-900 border-gray-700 text-white placeholder:text-gray-600 focus:border-primary transition-colors"
             />
           </div>
 
           <div>
-            <label htmlFor="message" className="text-sm font-medium text-white block mb-2">
+            <label htmlFor="message" className="text-sm font-semibold text-white block mb-3">
               Message
             </label>
             <Textarea
               id="message"
-              placeholder="Your message here..."
+              placeholder="Tell me about your project or how I can help..."
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               required
-              className="min-h-32 bg-gray-900 border-gray-700 text-white placeholder:text-gray-500"
+              className="min-h-40 bg-gray-900 border-gray-700 text-white placeholder:text-gray-600 focus:border-primary transition-colors resize-none"
             />
           </div>
 
           <Button
             type="submit"
-            className="w-full bg-primary hover:bg-red-700 text-white font-semibold py-6 transition-all hover:scale-105"
+            className="w-full bg-primary hover:bg-red-700 text-white font-bold py-6 text-lg rounded-sm transition-all hover:scale-105 active:scale-95"
           >
             Send Message
+            <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
+
+          <p className="text-xs text-gray-500 text-center">
+            I'll get back to you as soon as possible. Usually within 24 hours.
+          </p>
         </motion.form>
       </div>
+
+      {/* Additional Info */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="grid md:grid-cols-3 gap-6"
+      >
+        <div className="bg-card/40 border border-gray-800 rounded-lg p-8 text-center hover:border-primary transition-all">
+          <div className="mb-4 inline-block p-3 bg-primary/20 rounded-lg">
+            <Mail className="w-6 h-6 text-primary" />
+          </div>
+          <h4 className="text-lg font-bold text-white mb-2">Email</h4>
+          <p className="text-gray-400">Best for general inquiries</p>
+        </div>
+
+        <div className="bg-card/40 border border-gray-800 rounded-lg p-8 text-center hover:border-primary transition-all">
+          <div className="mb-4 inline-block p-3 bg-primary/20 rounded-lg">
+            <Github className="w-6 h-6 text-primary" />
+          </div>
+          <h4 className="text-lg font-bold text-white mb-2">GitHub</h4>
+          <p className="text-gray-400">Check my code and projects</p>
+        </div>
+
+        <div className="bg-card/40 border border-gray-800 rounded-lg p-8 text-center hover:border-primary transition-all">
+          <div className="mb-4 inline-block p-3 bg-primary/20 rounded-lg">
+            <Linkedin className="w-6 h-6 text-primary" />
+          </div>
+          <h4 className="text-lg font-bold text-white mb-2">LinkedIn</h4>
+          <p className="text-gray-400">Professional networking</p>
+        </div>
+      </motion.div>
     </section>
   );
 }
