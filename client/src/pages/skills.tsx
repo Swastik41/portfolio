@@ -1,6 +1,72 @@
 import { motion } from "framer-motion";
-import { DATA } from "@/lib/data";
-import { Sparkles } from "lucide-react";
+import { 
+  Terminal, 
+  Code2, 
+  Coffee, 
+  Database, 
+  RefreshCcwDot as ReactIcon,
+  Zap,
+  Server,
+  GitBranch
+} from "lucide-react";
+
+const skillCategories = [
+  {
+    title: "Languages",
+    skills: [
+      {
+        name: "Terminal",
+        description: "ML/AI and Backend development",
+        icon: Terminal
+      },
+      {
+        name: "C++",
+        description: "Object-oriented programming",
+        icon: Code2
+      },
+      {
+        name: "JavaScript",
+        description: "Web development",
+        icon: Coffee
+      },
+      {
+        name: "Java",
+        description: "Enterprise applications",
+        icon: Database
+      }
+    ]
+  },
+  {
+    title: "Frontend",
+    skills: [
+      {
+        name: "RefreshCcwDot",
+        description: "Modern web interfaces",
+        icon: ReactIcon
+      }
+    ]
+  },
+  {
+    title: "Backend",
+    skills: [
+      {
+        name: "Node.js",
+        description: "JavaScript runtime",
+        icon: Server
+      },
+      {
+        name: "Django",
+        description: "Terminal web framework",
+        icon: Zap
+      },
+      {
+        name: "Flask",
+        description: "Lightweight Terminal framework",
+        icon: GitBranch
+      }
+    ]
+  }
+];
 
 export default function Skills() {
   const containerVariants = {
@@ -8,7 +74,7 @@ export default function Skills() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15
+        staggerChildren: 0.1
       }
     }
   };
@@ -23,116 +89,117 @@ export default function Skills() {
   };
 
   return (
-    <section className="section-container pt-32">
+    <section className="section-container pt-32 pb-20">
       {/* Page Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mb-16 text-center"
+        className="mb-20 text-center"
       >
-        <div className="mb-6 flex items-center justify-center gap-3">
-          <div className="h-1 w-8 bg-primary"></div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white">
-            Skills & Expertise
-          </h1>
-          <div className="h-1 w-8 bg-primary"></div>
-        </div>
+        <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          Skills
+        </h1>
         <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-          A comprehensive overview of my technical skills and proficiencies across the full stack.
+          Technologies and tools I specialize in
         </p>
       </motion.div>
 
-      {/* Skills Grid */}
+      {/* Skills Categories */}
       <motion.div
-        className="grid md:grid-cols-3 gap-8 mb-16"
+        className="space-y-16"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
       >
-        {DATA.skills.map((skillGroup) => (
-          <motion.div
-            key={skillGroup.category}
-            variants={itemVariants}
-            className="group bg-card/40 border border-gray-800 rounded-lg p-8 hover:border-primary hover:shadow-2xl hover:shadow-red-900/50 transition-all duration-300 hover:scale-105"
-          >
-            {/* Category Header */}
-            <div className="flex items-center gap-3 mb-8">
-              <div className="h-10 w-10 rounded-lg bg-primary/20 group-hover:bg-primary/30 transition-colors flex items-center justify-center">
-                <Sparkles className="w-5 h-5 text-primary" />
-              </div>
-              <h3 className="text-xl font-bold text-white group-hover:text-primary transition-colors">
-                {skillGroup.category}
-              </h3>
-            </div>
+        {skillCategories.map((category, categoryIndex) => (
+          <div key={categoryIndex}>
+            {/* Category Title */}
+            <motion.h2
+              variants={itemVariants}
+              className="text-3xl md:text-4xl font-bold text-white text-center mb-12"
+            >
+              {category.title}
+            </motion.h2>
 
-            {/* Skills Tags */}
-            <div className="space-y-3">
-              {skillGroup.items.map((skill, index) => (
-                <motion.div
-                  key={skill}
-                  initial={{ opacity: 0, x: -10 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.05 }}
-                  viewport={{ once: true }}
-                  className="inline-block mr-2 mb-2"
-                >
-                  <span className="px-4 py-2 bg-gray-900 text-gray-300 text-sm rounded-full border border-gray-700 hover:border-primary hover:text-primary hover:bg-primary/10 transition-all duration-200 cursor-default inline-block font-medium">
-                    {skill}
-                  </span>
-                </motion.div>
-              ))}
-            </div>
-
-            {/* Progress bar for visual effect */}
-            <div className="mt-8 pt-8 border-t border-gray-800">
-              <div className="space-y-3">
-                <div>
-                  <p className="text-xs text-gray-500 font-semibold mb-2">Proficiency</p>
-                  <div className="w-full bg-gray-900 rounded-full h-2 overflow-hidden">
+            {/* Skills Grid */}
+            <div
+              className={`grid gap-8 ${
+                category.skills.length === 1
+                  ? "grid-cols-1 max-w-lg mx-auto"
+                  : category.skills.length === 3
+                  ? "grid-cols-1 md:grid-cols-3"
+                  : "grid-cols-2 md:grid-cols-4"
+              }`}
+            >
+              {category.skills.map((skill, skillIndex) => {
+                const Icon = skill.icon;
+                return (
+                  <motion.div
+                    key={skillIndex}
+                    variants={itemVariants}
+                    whileHover={{ 
+                      scale: 1.05,
+                      boxShadow: "0 0 30px rgba(229, 9, 20, 0.5)"
+                    }}
+                    className="bg-gray-900/60 border border-gray-800 rounded-xl p-8 text-center hover:border-primary transition-all duration-300 group cursor-pointer"
+                  >
+                    {/* Icon */}
                     <motion.div
-                      initial={{ width: 0 }}
-                      whileInView={{ width: "90%" }}
-                      transition={{ duration: 0.8, delay: 0.2 }}
-                      viewport={{ once: true }}
-                      className="h-full bg-gradient-to-r from-primary to-red-600"
-                    />
-                  </div>
-                </div>
-              </div>
+                      initial={{ scale: 1 }}
+                      whileHover={{ scale: 1.2, rotate: 10 }}
+                      transition={{ type: "spring", stiffness: 200 }}
+                      className="flex justify-center mb-6"
+                    >
+                      <div className="p-4 bg-primary/20 rounded-lg group-hover:bg-primary/30 transition-colors">
+                        <Icon className="w-8 h-8 text-primary group-hover:scale-110 transition-transform" />
+                      </div>
+                    </motion.div>
+
+                    {/* Name */}
+                    <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-primary transition-colors">
+                      {skill.name}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
+                      {skill.description}
+                    </p>
+
+                    {/* Hover Indicator */}
+                    <div className="mt-6 h-1 w-0 bg-gradient-to-r from-primary to-red-600 mx-auto group-hover:w-12 transition-all duration-300 rounded-full" />
+                  </motion.div>
+                );
+              })}
             </div>
-          </motion.div>
+          </div>
         ))}
       </motion.div>
 
-      {/* Additional Skills Info */}
+      {/* Additional Skills Section */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="bg-card/40 border border-gray-800 rounded-lg p-12 text-center"
+        className="mt-20 bg-gradient-to-r from-card/40 to-primary/5 border border-gray-800 rounded-xl p-12 text-center"
       >
         <h3 className="text-2xl font-bold text-white mb-4">
-          Always Learning
+          & More!
         </h3>
-        <p className="text-gray-400 max-w-3xl mx-auto mb-8">
-          I'm committed to continuous learning and staying updated with the latest technologies and best practices in web development. I actively explore new frameworks, tools, and methodologies to enhance my skills.
+        <p className="text-gray-300 mb-8 text-lg">
+          I'm also experienced with Docker, Git, AWS, Tailwind CSS, GraphQL, REST APIs, and many other tools and technologies.
         </p>
-        <div className="grid md:grid-cols-3 gap-8 mt-12">
-          <div className="p-6 bg-gray-900/50 rounded-lg">
-            <p className="text-3xl font-bold text-primary mb-2">50+</p>
-            <p className="text-gray-400">Projects Completed</p>
-          </div>
-          <div className="p-6 bg-gray-900/50 rounded-lg">
-            <p className="text-3xl font-bold text-primary mb-2">3+</p>
-            <p className="text-gray-400">Years Experience</p>
-          </div>
-          <div className="p-6 bg-gray-900/50 rounded-lg">
-            <p className="text-3xl font-bold text-primary mb-2">100%</p>
-            <p className="text-gray-400">Commitment</p>
-          </div>
+        <div className="grid grid-cols-3 md:grid-cols-5 gap-4 max-w-2xl mx-auto">
+          {["Docker", "Git", "AWS", "GraphQL", "REST"].map((tech) => (
+            <div
+              key={tech}
+              className="px-4 py-3 bg-gray-900/60 text-gray-300 text-sm rounded-lg border border-gray-700 hover:border-primary hover:text-primary hover:bg-primary/10 transition-all cursor-default font-medium"
+            >
+              {tech}
+            </div>
+          ))}
         </div>
       </motion.div>
     </section>
