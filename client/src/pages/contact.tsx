@@ -14,14 +14,41 @@ export default function Contact() {
     email: "",
     message: ""
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast({
-      title: "Message Sent! (Demo)",
-      description: "Thanks for reaching out. In a real app, this would send an email.",
-    });
-    setFormData({ name: "", email: "", message: "" });
+    setIsSubmitting(true);
+    
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        toast({
+          title: "Message Sent!",
+          description: "Thanks for reaching out. I'll get back to you soon.",
+        });
+        setFormData({ name: "", email: "", message: "" });
+      } else {
+        toast({
+          title: "Error",
+          description: "Failed to send message. Please try again.",
+          variant: "destructive"
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again.",
+        variant: "destructive"
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactMethods = [
@@ -177,9 +204,10 @@ export default function Contact() {
 
           <Button
             type="submit"
-            className="w-full bg-primary hover:bg-red-700 text-white font-bold py-6 text-lg rounded-sm transition-all hover:scale-105 active:scale-95"
+            disabled={isSubmitting}
+            className="w-full bg-primary hover:bg-red-700 text-white font-bold py-6 text-lg rounded-sm transition-all hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            Send Message
+            {isSubmitting ? "Sending..." : "Send Message"}
             <ArrowRight className="w-4 h-4 ml-2" />
           </Button>
 

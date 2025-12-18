@@ -19,7 +19,7 @@ function Router() {
   return (
     <>
       <Navbar />
-      <main>
+      <main className="min-h-screen">
         <Switch>
           <Route path="/" component={Home} />
           <Route path="/about" component={About} />
@@ -36,13 +36,13 @@ function Router() {
 }
 
 function App() {
-  const [showIntro, setShowIntro] = useState(true);
+  const [showIntro, setShowIntro] = useState(false);
 
   useEffect(() => {
     // Check if user has already seen intro
     const hasSeenIntro = sessionStorage.getItem("xverse-intro-shown");
-    if (hasSeenIntro) {
-      setShowIntro(false);
+    if (!hasSeenIntro) {
+      setShowIntro(true);
     }
   }, []);
 
@@ -51,12 +51,22 @@ function App() {
     setShowIntro(false);
   };
 
+  if (showIntro) {
+    return (
+      <QueryClientProvider client={queryClient}>
+        <TooltipProvider>
+          <Toaster />
+          <NetflixIntro onComplete={handleIntroComplete} />
+        </TooltipProvider>
+      </QueryClientProvider>
+    );
+  }
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
         <div className="min-h-screen bg-background text-foreground">
-          {showIntro && <NetflixIntro onComplete={handleIntroComplete} />}
           <Router />
         </div>
       </TooltipProvider>
