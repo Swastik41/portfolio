@@ -24,6 +24,7 @@ export type Skill = {
 };
 
 export const DATA = {
+  siteName: "XVerse",
   name: "Alex Developer",
   role: "MERN Stack Developer",
   location: "United States",

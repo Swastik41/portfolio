@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
+import { DATA } from "@/lib/data";
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -16,11 +17,12 @@ export function Navbar() {
   }, []);
 
   const navItems = [
-    { label: "About", href: "#about" },
-    { label: "Experience", href: "#experience" },
-    { label: "Projects", href: "#projects" },
-    { label: "Skills", href: "#skills" },
-    { label: "Contact", href: "#contact" }
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+    { label: "Experience", href: "/experience" },
+    { label: "Projects", href: "/projects" },
+    { label: "Skills", href: "/skills" },
+    { label: "Contact", href: "/contact" }
   ];
 
   return (
@@ -31,8 +33,8 @@ export function Navbar() {
       )}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-8 py-4 flex items-center justify-between">
-        <a href="#" className="text-lg md:text-2xl font-bold text-primary hover:text-primary/80 transition-colors">
-          DEVFLIX
+        <a href="/" className="text-lg md:text-2xl font-bold text-primary hover:text-primary/80 transition-colors">
+          {DATA.siteName}
         </a>
 
         {/* Desktop Navigation */}
@@ -41,7 +43,7 @@ export function Navbar() {
             <a
               key={item.label}
               href={item.href}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
+              className="text-sm text-gray-300 hover:text-white transition-colors duration-200"
             >
               {item.label}
             </a>
@@ -65,7 +67,7 @@ export function Navbar() {
               <a
                 key={item.label}
                 href={item.href}
-                className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+                className="text-sm text-gray-300 hover:text-white transition-colors"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {item.label}
