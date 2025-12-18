@@ -1,54 +1,47 @@
-import { Github, Linkedin, Mail, Twitter, Instagram, Globe } from "lucide-react";
 import { DATA } from "@/lib/data";
+import { Github, Linkedin, Mail } from "lucide-react";
 
 export function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="w-full bg-black/80 pt-16 pb-8 px-4 md:px-12 mt-20 border-t border-gray-900">
-      <div className="max-w-4xl mx-auto">
-        <div className="flex gap-6 mb-8">
-          <a href={DATA.profile.social.github} target="_blank" rel="noreferrer" className="text-white hover:text-gray-400 transition-colors">
-            <Github className="h-6 w-6" />
-          </a>
-          <a href={DATA.profile.social.linkedin} target="_blank" rel="noreferrer" className="text-white hover:text-gray-400 transition-colors">
-            <Linkedin className="h-6 w-6" />
-          </a>
-          <a href={DATA.profile.social.email} className="text-white hover:text-gray-400 transition-colors">
-            <Mail className="h-6 w-6" />
-          </a>
+    <footer className="border-t border-border bg-card mt-20">
+      <div className="max-w-6xl mx-auto px-6 md:px-8 py-12">
+        <div className="grid md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <h3 className="font-bold text-foreground mb-4">{DATA.name}</h3>
+            <p className="text-sm text-muted-foreground">{DATA.role}</p>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
+            <div className="space-y-2 text-sm text-muted-foreground">
+              <a href="#about" className="block hover:text-primary transition-colors">About</a>
+              <a href="#experience" className="block hover:text-primary transition-colors">Experience</a>
+              <a href="#projects" className="block hover:text-primary transition-colors">Projects</a>
+              <a href="#skills" className="block hover:text-primary transition-colors">Skills</a>
+            </div>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-foreground mb-4">Connect</h4>
+            <div className="flex items-center gap-4">
+              <a href={DATA.socials.github} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                <Github className="w-5 h-5" />
+              </a>
+              <a href={DATA.socials.linkedin} target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition-colors">
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a href={`mailto:${DATA.socials.email}`} className="text-muted-foreground hover:text-primary transition-colors">
+                <Mail className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-8 text-sm text-gray-500">
-          <ul className="space-y-3">
-            <li className="hover:underline cursor-pointer">About Me</li>
-            <li className="hover:underline cursor-pointer">Experience</li>
-            <li className="hover:underline cursor-pointer">Projects</li>
-          </ul>
-          <ul className="space-y-3">
-            <li className="hover:underline cursor-pointer">Certifications</li>
-            <li className="hover:underline cursor-pointer">Contact</li>
-            <li className="hover:underline cursor-pointer">Blog</li>
-          </ul>
-          <ul className="space-y-3">
-            <li className="hover:underline cursor-pointer">Privacy</li>
-            <li className="hover:underline cursor-pointer">Terms of Use</li>
-            <li className="hover:underline cursor-pointer">Cookie Preferences</li>
-          </ul>
-          <ul className="space-y-3">
-            <li className="hover:underline cursor-pointer">Help Center</li>
-            <li className="hover:underline cursor-pointer">Legal Notices</li>
-            <li className="hover:underline cursor-pointer">Corporate Information</li>
-          </ul>
+        <div className="border-t border-border pt-8 text-center text-sm text-muted-foreground">
+          <p>© {currentYear} {DATA.name}. All rights reserved.</p>
         </div>
-
-        <div className="mb-4">
-          <button className="border border-gray-500 text-gray-500 py-1 px-3 text-sm hover:text-white hover:border-white transition-colors">
-            Service Code
-          </button>
-        </div>
-
-        <p className="text-xs text-gray-500">
-          © 2024 {DATA.profile.name} Portfolio. Built with React & Tailwind.
-        </p>
       </div>
     </footer>
   );

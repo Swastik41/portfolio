@@ -1,22 +1,11 @@
-import { Code2, Server, Database, Layout, ExternalLink, Github, Award, Briefcase, Mail } from "lucide-react";
-
 export type Project = {
   id: number;
   title: string;
   description: string;
-  image: string;
-  tags: string[];
+  techStack: string[];
   liveUrl: string;
-  repoUrl: string;
-  featured?: boolean;
-};
-
-export type Certification = {
-  id: number;
-  title: string;
-  issuer: string;
-  date: string;
-  url: string;
+  githubUrl: string;
+  image?: string;
 };
 
 export type Experience = {
@@ -24,137 +13,124 @@ export type Experience = {
   role: string;
   company: string;
   duration: string;
-  description: string[];
+  startDate: string;
+  endDate: string;
+  bullets: string[];
+};
+
+export type Skill = {
+  category: string;
+  items: string[];
 };
 
 export const DATA = {
-  profile: {
-    name: "Alex Developer",
-    role: "MERN Stack Developer",
-    tagline: "Building scalable, high-performance web applications with modern technologies.",
-    about: "I'm a passionate full-stack developer specializing in the MERN stack. I love building clean, user-friendly interfaces and robust backend systems. Always learning, always coding.",
-    social: {
-      github: "https://github.com",
-      linkedin: "https://linkedin.com",
-      email: "mailto:hello@example.com"
-    }
-  },
+  name: "Alex Developer",
+  role: "MERN Stack Developer",
+  location: "United States",
+  bio: "I'm a passionate full-stack developer specializing in the MERN stack. Building scalable web applications with modern technologies.",
+  
+  about: "I'm a full-stack developer with a focus on building high-quality web applications using MongoDB, Express, React, and Node.js. I love solving complex problems and creating intuitive user experiences. When I'm not coding, you'll find me exploring new technologies and contributing to open-source projects.",
+  
+  highlights: [
+    "1+ year of professional MERN stack development",
+    "Passionate about building scalable and performant applications",
+    "Strong foundation in frontend and backend technologies",
+    "Experience with modern development tools and practices"
+  ],
+
   projects: [
     {
       id: 1,
       title: "E-Commerce Platform",
-      description: "A full-featured online store with cart, payments, and admin dashboard.",
-      image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80",
-      tags: ["React", "Node.js", "MongoDB", "Stripe"],
+      description: "A full-featured online store with shopping cart, payment integration, and admin dashboard.",
+      techStack: ["React", "Node.js", "MongoDB", "Stripe", "Tailwind CSS"],
       liveUrl: "#",
-      repoUrl: "#",
-      featured: true
+      githubUrl: "#",
+      image: "https://images.unsplash.com/photo-1557821552-17105176677c?w=800&q=80"
     },
     {
       id: 2,
       title: "Social Media Dashboard",
-      description: "Real-time analytics dashboard for social media management.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80",
-      tags: ["React", "Redux", "Express", "Socket.io"],
+      description: "Real-time analytics dashboard for managing multiple social media accounts.",
+      techStack: ["React", "Redux", "Express", "Socket.io", "PostgreSQL"],
       liveUrl: "#",
-      repoUrl: "#",
-      featured: true
+      githubUrl: "#",
+      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80"
     },
     {
       id: 3,
       title: "Task Management App",
-      description: "Collaborative project management tool with drag-and-drop interface.",
-      image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80",
-      tags: ["React", "Firebase", "Tailwind"],
+      description: "Collaborative project management tool with real-time collaboration features.",
+      techStack: ["React", "Firebase", "Tailwind CSS", "React Query"],
       liveUrl: "#",
-      repoUrl: "#",
-      featured: true
+      githubUrl: "#",
+      image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80"
     },
     {
       id: 4,
       title: "Weather Forecast API",
-      description: "Weather aggregation service providing accurate local forecasts.",
-      image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&q=80",
-      tags: ["Node.js", "Express", "Redis"],
+      description: "Weather aggregation service with accurate local forecasts and alerts.",
+      techStack: ["Node.js", "Express", "Redis", "OpenWeather API"],
       liveUrl: "#",
-      repoUrl: "#",
-      featured: true
+      githubUrl: "#",
+      image: "https://images.unsplash.com/photo-1592210454359-9043f067919b?w=800&q=80"
     },
     {
       id: 5,
       title: "Fitness Tracker",
-      description: "Mobile-first application for tracking workouts and nutrition.",
-      image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80",
-      tags: ["React Native", "GraphQL", "MongoDB"],
+      description: "Mobile-first fitness tracking application with workout logging and analytics.",
+      techStack: ["React Native", "GraphQL", "MongoDB", "Node.js"],
       liveUrl: "#",
-      repoUrl: "#",
-      featured: false
+      githubUrl: "#",
+      image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80"
     },
     {
       id: 6,
       title: "Recipe Finder",
-      description: "Search engine for recipes based on ingredients you have.",
-      image: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=800&q=80",
-      tags: ["React", "API Integration", "CSS Modules"],
+      description: "Smart recipe search engine based on available ingredients.",
+      techStack: ["React", "API Integration", "CSS Modules", "Node.js"],
       liveUrl: "#",
-      repoUrl: "#",
-      featured: false
-    },
-    {
-      id: 7,
-      title: "Chat Application",
-      description: "Real-time messaging app with group chats and file sharing.",
-      image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&q=80",
-      tags: ["React", "Socket.io", "Node.js"],
-      liveUrl: "#",
-      repoUrl: "#",
-      featured: false
-    },
-    {
-      id: 8,
-      title: "Portfolio v1",
-      description: "My previous portfolio website built with HTML/CSS.",
-      image: "https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800&q=80",
-      tags: ["HTML", "SASS", "JavaScript"],
-      liveUrl: "#",
-      repoUrl: "#",
-      featured: false
+      githubUrl: "#",
+      image: "https://images.unsplash.com/photo-1466637574441-749b8f19452f?w=800&q=80"
     }
   ],
-  certifications: [
-    {
-      id: 1,
-      title: "AWS Certified Developer",
-      issuer: "Amazon Web Services",
-      date: "2023",
-      url: "#"
-    },
-    {
-      id: 2,
-      title: "Full Stack Web Development",
-      issuer: "Udacity",
-      date: "2022",
-      url: "#"
-    },
-    {
-      id: 3,
-      title: "MongoDB Certified Developer",
-      issuer: "MongoDB University",
-      date: "2022",
-      url: "#"
-    }
-  ],
+
   experience: [
     {
       id: 1,
-      role: "Junior Full Stack Developer",
+      role: "MERN Stack Developer",
       company: "Tech Solutions Inc.",
       duration: "1 Year",
-      description: [
-        "Developed and maintained responsive web applications using React and Node.js.",
-        "Collaborated with cross-functional teams to define, design, and ship new features.",
-        "Optimized application performance and improved code quality through reviews."
+      startDate: "2023",
+      endDate: "2024",
+      bullets: [
+        "Developed and maintained responsive web applications using React and Node.js",
+        "Collaborated with cross-functional teams to design and implement new features",
+        "Optimized application performance and improved code quality through code reviews",
+        "Worked with MongoDB to design and maintain efficient database schemas"
       ]
     }
-  ]
+  ],
+
+  skills: [
+    {
+      category: "Frontend",
+      items: ["React", "TypeScript", "Tailwind CSS", "Redux", "Next.js", "Framer Motion"]
+    },
+    {
+      category: "Backend",
+      items: ["Node.js", "Express.js", "MongoDB", "PostgreSQL", "GraphQL", "REST APIs"]
+    },
+    {
+      category: "Tools & Others",
+      items: ["Git", "Docker", "AWS", "Vercel", "GitHub", "VS Code", "Figma", "Linux"]
+    }
+  ],
+
+  socials: {
+    github: "https://github.com",
+    linkedin: "https://linkedin.com",
+    twitter: "https://twitter.com",
+    email: "hello@example.com"
+  }
 };

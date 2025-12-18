@@ -24,8 +24,7 @@
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
 
-  --font-display: 'Bebas Neue', cursive;
-  --font-sans: 'Martel Sans', sans-serif;
+  --font-sans: 'Inter', sans-serif;
   
   --radius-sm: calc(var(--radius) - 4px);
   --radius-md: calc(var(--radius) - 2px);
@@ -33,70 +32,65 @@
 }
 
 :root {
-  /* Netflix-inspired Dark Theme by default */
-  --background: 0 0% 8%; /* #141414 */
-  --foreground: 0 0% 90%; /* #e5e5e5 */
+  /* Minimal light theme with dark accents */
+  --background: 0 0% 98%; /* Almost white */
+  --foreground: 0 0% 10%; /* Almost black */
   
-  --card: 0 0% 8%;
-  --card-foreground: 0 0% 90%;
+  --card: 0 0% 100%;
+  --card-foreground: 0 0% 10%;
   
-  --popover: 0 0% 8%;
-  --popover-foreground: 0 0% 90%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 10%;
   
-  --primary: 356 93% 47%; /* Netflix Red #E50914 */
+  --primary: 200 100% 50%; /* Clean blue */
   --primary-foreground: 0 0% 100%;
   
-  --secondary: 0 0% 20%; /* Dark Gray buttons */
+  --secondary: 0 0% 40%;
   --secondary-foreground: 0 0% 100%;
   
-  --muted: 0 0% 20%;
-  --muted-foreground: 0 0% 60%;
+  --muted: 0 0% 50%;
+  --muted-foreground: 0 0% 70%;
   
-  --accent: 0 0% 20%;
+  --accent: 200 100% 50%;
   --accent-foreground: 0 0% 100%;
   
-  --destructive: 0 62.8% 30.6%;
+  --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
   
-  --border: 0 0% 20%;
-  --input: 0 0% 20%;
-  --ring: 356 93% 47%;
+  --border: 0 0% 90%;
+  --input: 0 0% 95%;
+  --ring: 200 100% 50%;
   
-  --radius: 0.25rem;
+  --radius: 0.5rem;
 }
 
 body {
   @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
 }
 
-/* Hide scrollbar for Chrome, Safari and Opera */
+html {
+  scroll-behavior: smooth;
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
 
-/* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
 
-.text-shadow {
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
+@layer components {
+  .section-container {
+    @apply max-w-6xl mx-auto px-6 md:px-8 py-20;
+  }
 
-.hero-gradient {
-  background: linear-gradient(
-    to bottom,
-    rgba(20, 20, 20, 0) 0%,
-    rgba(20, 20, 20, 0.6) 60%,
-    rgba(20, 20, 20, 1) 100%
-  );
-}
+  .section-title {
+    @apply text-4xl md:text-5xl font-bold mb-12 text-foreground;
+  }
 
-.nav-gradient {
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.7) 10%,
-    rgba(0, 0, 0, 0) 100%
-  );
+  .section-subtitle {
+    @apply text-lg md:text-xl text-muted-foreground mb-8;
+  }
 }

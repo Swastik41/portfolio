@@ -1,0 +1,165 @@
+<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" style="height:64px;margin-right:32px"/>
+
+# Can i give you link you can analyze it and then give me prompt to build that kind of website using components:
+
+[https://architjain.me/](https://architjain.me/)
+
+Yes, you can absolutely do that, and the site you linked is a good reference for a clean, component-based portfolio.[^1][^2][^3]
+
+Here is a ready-to-use prompt you can paste into Replit AI to get a **similar-style** portfolio built with reusable components (not a copy, just inspired by the layout and feel):
+
+***
+
+You are an expert React front-end engineer.
+Build a **single-page developer portfolio** inspired by a modern minimal portfolio like architjain.me, but do not copy any code, text, or assets. Use only original content and styling.
+
+**Tech \& setup**
+
+- Use **React** with functional components and hooks.
+- Use **TypeScript (optional, if easier keep JS)** and a modern bundler (Vite or CRA).
+- Use a **responsive layout** with a clean, minimal look, light typography, and strong emphasis on sections and spacing.
+- Organize the app into clearly separated, reusable components.
+
+**Overall layout**
+
+Create these components and sections:
+
+1. `Navbar`
+    - Left: developer name and small role tag (e.g., “MERN Stack Developer”).
+    - Right: smooth-scroll links to sections: “About”, “Experience”, “Projects”, “Skills”, “Contact”.
+    - Sticky at top with subtle blur or background change on scroll.
+2. `HeroSection`
+    - Centered or left-aligned main intro section with:
+        - Heading like “Hi, I’m [Your Name]”.
+        - Subheading like “MERN Stack Developer” with short one-line description.
+        - Two primary CTAs: “View Projects” and “Download Resume”.
+        - Small secondary line showing current role/status and maybe location.
+    - Add subtle motion/transition (text fade-in, slight translate on load).
+3. `AboutSection`
+    - Brief paragraph about the developer, tech focus (MERN), and interests.
+    - A small list of highlight bullets (e.g., years of experience, main specialties, types of projects).
+    - Use a simple, clean two-column layout on desktop and stack on mobile.
+4. `ExperienceSection`
+    - Timeline or stacked cards for experience entries.
+    - Each entry: role, company, duration, and 2–3 bullet points.
+    - For now, seed with one role: “MERN Stack Developer” with “1 year” duration and placeholder company and responsibilities.
+5. `ProjectsSection`
+    - Grid or cards-based layout for projects (3–8 items).
+    - Each project card:
+        - Title.
+        - Short description (1–2 lines).
+        - Tech stack badges (MongoDB, Express, React, Node, etc.).
+        - Links for “Live Demo” and “GitHub”.
+    - Add hover effects (e.g., lift, shadow, slight scale).
+6. `SkillsSection`
+    - Categorized skills similar to a modern developer portfolio:
+        - “Frontend” (React, Redux, Tailwind, etc.),
+        - “Backend” (Node, Express, MongoDB, etc.),
+        - “Tools \& Others” (Git, Docker, etc.).
+    - Display as pill badges or grouped columns.
+7. `ContactSection`
+    - Short text inviting contact from recruiters/clients.
+    - Simple contact section with:
+        - Email link button.
+        - Buttons/icons for GitHub and LinkedIn.
+    - Optional simple form (name, email, message) with client-side validation only and a fake “Message sent (demo)” success state.
+8. `Footer`
+    - Minimal footer with name, year, and small set of links (GitHub, LinkedIn, Email).
+
+**Components \& structure**
+
+Create a clean components folder structure:
+
+- `components/Navbar.tsx`
+- `components/HeroSection.tsx`
+- `components/AboutSection.tsx`
+- `components/ExperienceSection.tsx`
+- `components/ProjectsSection.tsx`
+- `components/SkillsSection.tsx`
+- `components/ContactSection.tsx`
+- `components/Footer.tsx`
+
+Also create a `data` file (e.g., `src/data/portfolioData.ts`) where all content is stored as arrays/objects:
+
+- `projects` array (title, description, techStack, liveUrl, githubUrl).
+- `experience` array (role, company, startDate, endDate, bullets).
+- `skills` grouped by category.
+
+Map all sections from this data so it is easy to replace later.
+
+**Styling**
+
+- Use a modern UI feel:
+    - Dark or dark-on-slate background with good contrast, or a subtle gradient background.
+    - Clean font pairing (e.g., sans-serif for headings and body).
+    - Consistent spacing, shadow, and border-radius scale across components.
+- Ensure full responsiveness:
+    - Mobile-first design.
+    - Stack sections vertically and adjust padding on small screens.
+- Add smooth scroll for nav links and small transitions on hover/focus.
+
+**Accessibility \& polish**
+
+- Use semantic HTML (section, nav, main, footer).
+- Add `aria-label`s where appropriate and ensure focus states are visible.
+- Keep colors accessible (sufficient contrast).
+
+**Placeholders**
+
+Use generic placeholder content but clearly comment where to plug in my details:
+
+- Name, title, location.
+- 3–6 real projects.
+- 1 year MERN experience entry.
+- Skills list tailored to MERN and related tools.
+- Links for GitHub, LinkedIn, and email.
+
+Produce all necessary files and code so the project runs immediately in Replit.
+
+***
+
+You can now paste this into Replit AI and then replace the placeholder text/data with your own MERN projects, 3 certifications, and experience.
+<span style="display:none">[^10][^11][^12][^13][^14][^15][^16][^17][^18][^19][^20][^4][^5][^6][^7][^8][^9]</span>
+
+<div align="center">⁂</div>
+
+[^1]: https://architj6.me
+
+[^2]: https://0xarchit.is-a.dev
+
+[^3]: https://github.com/ArchitJ6
+
+[^4]: https://archit-jain-portfolio.vercel.app
+
+[^5]: https://architj6.me/projects
+
+[^6]: https://in.linkedin.com/in/architjain01
+
+[^7]: https://archifol.io
+
+[^8]: https://files.0xarchit.is-a.dev/archit_resume.pdf
+
+[^9]: https://www.reddit.com/r/web_design/comments/1pkzi9d/im_designing_the_project_page_hero_section_is_the/
+
+[^10]: https://in.linkedin.com/in/thisisarchitjain
+
+[^11]: https://www.youtube.com/watch?v=olYFQzXrpWI
+
+[^12]: https://architjain11.github.io
+
+[^13]: https://www.architjn.com/blog/vibe-coding-for-non-technical-users
+
+[^14]: https://in.linkedin.com/in/archit-jain-2504188a
+
+[^15]: https://www.architjn.com
+
+[^16]: https://ethindia2023.devfolio.co/@architjain/projects
+
+[^17]: https://members.vld.community/c/our-thought_leaders/episode-9-part-4-archit-jain-lighting-x-factors-teachers-teams-and-trust
+
+[^18]: https://architjain.dev
+
+[^19]: https://nextleap.app/portfolio/archit-jain-g6e3
+
+[^20]: https://contactout.com/Archit-Jain-86075752
+
