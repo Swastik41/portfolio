@@ -5,15 +5,18 @@ import { DATA } from "@/lib/data";
 export function ExperienceSection() {
   return (
     <section id="experience" className="section-container">
-      <motion.h2
-        className="section-title"
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
+        className="mb-12 flex items-center gap-3"
       >
-        Experience
-      </motion.h2>
+        <div className="h-1 w-8 bg-primary"></div>
+        <h2 className="text-4xl md:text-5xl font-bold text-white">
+          Experience
+        </h2>
+      </motion.div>
 
       <div className="space-y-8">
         {DATA.experience.map((exp, index) => (
@@ -30,13 +33,13 @@ export function ExperienceSection() {
               <h3 className="text-xl font-bold text-foreground">{exp.role}</h3>
             </div>
             <p className="text-primary font-semibold mb-1">{exp.company}</p>
-            <div className="flex items-center gap-2 text-sm text-muted-foreground mb-4">
+            <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
               <Calendar className="w-4 h-4" />
               <span>{exp.duration}</span>
             </div>
             <ul className="space-y-2">
               {exp.bullets.map((bullet, i) => (
-                <li key={i} className="text-muted-foreground flex items-start gap-3">
+                <li key={i} className="text-gray-400 flex items-start gap-3">
                   <span className="text-primary mt-1">•</span>
                   <span>{bullet}</span>
                 </li>

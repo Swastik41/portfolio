@@ -32,36 +32,36 @@
 }
 
 :root {
-  /* Minimal light theme with dark accents */
-  --background: 0 0% 98%; /* Almost white */
-  --foreground: 0 0% 10%; /* Almost black */
+  /* Netflix Dark Cinematic Theme */
+  --background: 0 0% 8%; /* Deep dark #141414 */
+  --foreground: 0 0% 100%; /* Pure white */
   
-  --card: 0 0% 100%;
-  --card-foreground: 0 0% 10%;
+  --card: 0 0% 12%; /* Dark gray cards */
+  --card-foreground: 0 0% 100%;
   
-  --popover: 0 0% 100%;
-  --popover-foreground: 0 0% 10%;
+  --popover: 0 0% 12%;
+  --popover-foreground: 0 0% 100%;
   
-  --primary: 200 100% 50%; /* Clean blue */
+  --primary: 356 93% 47%; /* Netflix Red #E50914 */
   --primary-foreground: 0 0% 100%;
   
-  --secondary: 0 0% 40%;
+  --secondary: 0 0% 20%;
   --secondary-foreground: 0 0% 100%;
   
-  --muted: 0 0% 50%;
+  --muted: 0 0% 40%;
   --muted-foreground: 0 0% 70%;
   
-  --accent: 200 100% 50%;
+  --accent: 356 93% 47%; /* Netflix Red */
   --accent-foreground: 0 0% 100%;
   
   --destructive: 0 84.2% 60.2%;
   --destructive-foreground: 0 0% 98%;
   
-  --border: 0 0% 90%;
-  --input: 0 0% 95%;
-  --ring: 200 100% 50%;
+  --border: 0 0% 20%;
+  --input: 0 0% 15%;
+  --ring: 356 93% 47%;
   
-  --radius: 0.5rem;
+  --radius: 0.25rem;
 }
 
 body {

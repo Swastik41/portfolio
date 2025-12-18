@@ -25,60 +25,55 @@ export function HeroSection() {
   };
 
   return (
-    <section className="min-h-screen flex items-center justify-center pt-20 px-6 md:px-8">
+    <section className="relative min-h-screen flex items-center justify-start pt-20 px-6 md:px-12 overflow-hidden">
+      {/* Background Image with Gradient Overlay */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black" />
+      </div>
+
       <motion.div
-        className="max-w-4xl w-full text-center md:text-left"
+        className="max-w-3xl w-full relative z-10"
         variants={containerVariants}
         initial="hidden"
         animate="visible"
       >
-        <motion.div variants={itemVariants} className="mb-4">
-          <p className="text-sm md:text-base text-muted-foreground font-medium">
-            Welcome to my portfolio
+        <motion.div variants={itemVariants} className="mb-4 flex items-center gap-2">
+          <div className="h-1 w-8 bg-primary"></div>
+          <p className="text-sm md:text-base text-gray-300 font-medium uppercase tracking-widest">
+            MERN Stack Developer
           </p>
         </motion.div>
 
         <motion.h1
           variants={itemVariants}
-          className="text-5xl md:text-7xl font-bold text-foreground mb-6 leading-tight"
+          className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight"
         >
-          Hi, I'm{" "}
-          <span className="bg-gradient-to-r from-primary to-blue-600 bg-clip-text text-transparent">
-            {DATA.name}
-          </span>
+          {DATA.name}
         </motion.h1>
 
         <motion.p
           variants={itemVariants}
-          className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl"
+          className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl leading-relaxed drop-shadow-md"
         >
-          {DATA.role} — {DATA.bio}
-        </motion.p>
-
-        <motion.p
-          variants={itemVariants}
-          className="text-base text-muted-foreground mb-8 flex items-center gap-2 justify-center md:justify-start"
-        >
-          📍 {DATA.location}
+          {DATA.bio}
         </motion.p>
 
         <motion.div
           variants={itemVariants}
-          className="flex items-center gap-4 justify-center md:justify-start mb-12"
+          className="flex items-center gap-4 mb-12"
         >
           <Button
             size="lg"
-            className="bg-primary hover:bg-primary/90 text-white px-8"
+            className="bg-white text-black hover:bg-white/90 font-semibold px-8 py-6 rounded-sm flex items-center gap-2 transition-transform hover:scale-105"
             onClick={() => document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" })}
           >
-            View Projects
+            ▶ View Projects
           </Button>
           <Button
             size="lg"
-            variant="outline"
-            className="border-border hover:bg-muted text-foreground px-8"
+            className="bg-gray-600/50 text-white hover:bg-gray-600/70 font-semibold px-8 py-6 rounded-sm backdrop-blur-sm transition-transform hover:scale-105"
           >
-            Download Resume
+            ℹ Resume
           </Button>
         </motion.div>
 

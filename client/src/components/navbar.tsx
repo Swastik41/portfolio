@@ -27,13 +27,12 @@ export function Navbar() {
     <nav
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-        isScrolled ? "bg-background/80 backdrop-blur-md border-b border-border" : "bg-transparent"
+        isScrolled ? "bg-black/60 backdrop-blur-md border-b border-border" : "bg-gradient-to-b from-black/70 to-transparent"
       )}
     >
       <div className="max-w-6xl mx-auto px-6 md:px-8 py-4 flex items-center justify-between">
-        <a href="#" className="text-lg md:text-xl font-bold text-foreground hover:text-primary transition-colors">
-          Alex Developer
-          <span className="text-xs md:text-sm text-muted-foreground ml-2">MERN Developer</span>
+        <a href="#" className="text-lg md:text-2xl font-bold text-primary hover:text-primary/80 transition-colors">
+          DEVFLIX
         </a>
 
         {/* Desktop Navigation */}

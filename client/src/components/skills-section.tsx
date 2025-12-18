@@ -23,15 +23,18 @@ export function SkillsSection() {
 
   return (
     <section id="skills" className="section-container">
-      <motion.h2
-        className="section-title"
+      <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
+        className="mb-12 flex items-center gap-3"
       >
-        Skills
-      </motion.h2>
+        <div className="h-1 w-8 bg-primary"></div>
+        <h2 className="text-4xl md:text-5xl font-bold text-white">
+          Skills
+        </h2>
+      </motion.div>
 
       <motion.div
         className="grid md:grid-cols-3 gap-8"
@@ -44,14 +47,14 @@ export function SkillsSection() {
           <motion.div
             key={skillGroup.category}
             variants={itemVariants}
-            className="bg-card border border-border rounded-lg p-6 hover:border-primary transition-colors duration-300"
+            className="bg-card/60 border border-gray-800 rounded-sm p-6 hover:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-red-900/30"
           >
-            <h3 className="text-lg font-bold text-foreground mb-4">{skillGroup.category}</h3>
+            <h3 className="text-lg font-bold text-white mb-4">{skillGroup.category}</h3>
             <div className="flex flex-wrap gap-2">
               {skillGroup.items.map((skill) => (
                 <span
                   key={skill}
-                  className="px-3 py-1.5 bg-primary/10 text-primary text-xs rounded-full font-medium hover:bg-primary hover:text-white transition-colors duration-200 cursor-default"
+                  className="px-3 py-1.5 bg-gray-900 text-gray-300 text-xs rounded font-medium border border-gray-700 hover:border-primary hover:text-primary transition-colors duration-200 cursor-default"
                 >
                   {skill}
                 </span>
