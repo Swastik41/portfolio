@@ -1,26 +1,29 @@
 import { motion } from "framer-motion";
-import { Code2, Users, Zap, Rocket } from "lucide-react";
 
 const roles = [
   {
-    icon: Code2,
+    emoji: "👨‍💻",
     title: "Developer",
-    description: "Full-stack solutions"
+    color: "from-blue-500 to-cyan-400",
+    bgColor: "bg-gradient-to-br from-blue-500 to-cyan-400"
   },
   {
-    icon: Users,
+    emoji: "🤝",
     title: "Collaborator",
-    description: "Team player"
+    color: "from-gray-500 to-slate-400",
+    bgColor: "bg-gradient-to-br from-gray-500 to-slate-400"
   },
   {
-    icon: Zap,
+    emoji: "⚡",
     title: "Problem Solver",
-    description: "Creative thinker"
+    color: "from-red-600 to-pink-500",
+    bgColor: "bg-gradient-to-br from-red-600 to-pink-500"
   },
   {
-    icon: Rocket,
+    emoji: "🚀",
     title: "Innovator",
-    description: "Always learning"
+    color: "from-amber-500 to-orange-400",
+    bgColor: "bg-gradient-to-br from-amber-500 to-orange-400"
   }
 ];
 
@@ -30,24 +33,25 @@ export function RolesShowcase() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
+        staggerChildren: 0.2,
         delayChildren: 0.3
       }
     }
   };
 
   const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 40, scale: 0.8 },
     visible: {
       opacity: 1,
       y: 0,
+      scale: 1,
       transition: { duration: 0.6 }
     }
   };
 
   return (
     <motion.section
-      className="section-container py-20"
+      className="section-container py-24"
       variants={containerVariants}
       initial="hidden"
       whileInView="visible"
@@ -55,40 +59,67 @@ export function RolesShowcase() {
     >
       <motion.div
         variants={itemVariants}
-        className="text-center mb-16"
+        className="text-center mb-20"
       >
-        <p className="text-primary text-sm font-semibold uppercase tracking-widest mb-4">
-          Who I Am
-        </p>
-        <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-          Roles & Expertise
+        <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          Who's Watching?
         </h2>
+        <p className="text-xl text-gray-400">
+          Different facets of my professional identity
+        </p>
       </motion.div>
 
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-        {roles.map((role, index) => {
-          const Icon = role.icon;
-          return (
-            <motion.div
-              key={index}
-              variants={itemVariants}
-              className="group bg-card/60 border border-gray-800 rounded-lg p-6 hover:border-primary hover:shadow-2xl hover:shadow-red-900/50 transition-all duration-300 hover:scale-105 cursor-pointer text-center"
+      <div className="flex flex-wrap justify-center gap-8 md:gap-12">
+        {roles.map((role, index) => (
+          <motion.div
+            key={index}
+            variants={itemVariants}
+            whileHover={{ 
+              scale: 1.1,
+              rotateY: 5,
+              rotateX: -5
+            }}
+            className="group cursor-pointer perspective"
+          >
+            <div className={`w-40 h-40 md:w-48 md:h-48 ${role.bgColor} rounded-lg flex items-center justify-center relative shadow-2xl hover:shadow-xl transition-all duration-300 transform`}>
+              {/* Shine effect */}
+              <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 rounded-lg transition-opacity" />
+              
+              {/* Emoji/Face */}
+              <motion.div
+                initial={{ scale: 1 }}
+                whileHover={{ scale: 1.2 }}
+                className="text-8xl md:text-9xl drop-shadow-lg"
+              >
+                {role.emoji}
+              </motion.div>
+
+              {/* Glow effect on hover */}
+              <div className="absolute inset-0 bg-gradient-to-br from-white/20 to-transparent rounded-lg opacity-0 group-hover:opacity-100 transition-opacity blur-sm" />
+            </div>
+
+            {/* Title */}
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 + index * 0.1 }}
+              viewport={{ once: true }}
+              className="mt-6 text-center text-lg md:text-xl font-semibold text-white group-hover:text-primary transition-colors"
             >
-              <div className="mb-4 flex justify-center">
-                <div className="p-3 bg-primary/20 rounded-lg group-hover:bg-primary/30 transition-colors">
-                  <Icon className="w-6 h-6 text-primary" />
-                </div>
-              </div>
-              <h3 className="text-lg font-bold text-white mb-2 group-hover:text-primary transition-colors">
-                {role.title}
-              </h3>
-              <p className="text-sm text-gray-400 group-hover:text-gray-300 transition-colors">
-                {role.description}
-              </p>
-            </motion.div>
-          );
-        })}
+              {role.title}
+            </motion.p>
+          </motion.div>
+        ))}
       </div>
+
+      {/* Decorative line */}
+      <motion.div
+        initial={{ scaleX: 0 }}
+        whileInView={{ scaleX: 1 }}
+        transition={{ delay: 0.8, duration: 0.6 }}
+        viewport={{ once: true }}
+        className="h-1 w-24 bg-gradient-to-r from-primary to-transparent mx-auto mt-20"
+      />
     </motion.section>
   );
 }
