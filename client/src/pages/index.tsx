@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { DATA } from "@/lib/data";
 import { Github, Linkedin, Mail } from "lucide-react";
 import { RolesShowcase } from "@/components/roles-showcase";
+import heroBg from '@assets/generated_images/cinematic_hero_landscape_background.png';
 
 export default function Home() {
   const containerVariants = {
@@ -27,11 +28,17 @@ export default function Home() {
 
   return (
     <>
-      <section className="relative min-h-screen flex items-center justify-start pt-20 px-6 md:px-12 overflow-hidden">
-        {/* Background Image with Gradient Overlay */}
-        <div className="absolute inset-0 z-0">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black" />
-        </div>
+      <section 
+        className="relative min-h-screen flex items-center justify-start pt-20 px-6 md:px-12 overflow-hidden"
+        style={{
+          backgroundImage: `url(${heroBg})`,
+          backgroundSize: 'cover',
+          backgroundPosition: 'center'
+        }}
+      >
+        {/* Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-transparent z-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/50 to-black z-0" />
 
         <motion.div
           className="max-w-3xl w-full relative z-10"
@@ -48,7 +55,7 @@ export default function Home() {
 
           <motion.h1
             variants={itemVariants}
-            className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight"
+            className="text-6xl md:text-7xl font-bold text-white mb-6 leading-tight drop-shadow-lg"
           >
             {DATA.name}
           </motion.h1>
@@ -67,28 +74,28 @@ export default function Home() {
             <a href="/projects">
               <Button
                 size="lg"
-                className="bg-white text-black hover:bg-white/90 font-semibold px-8 py-6 rounded-sm flex items-center gap-2 transition-transform hover:scale-105 cursor-pointer"
+                className="bg-white text-black hover:bg-white/90 font-semibold px-8 py-6 rounded-sm flex items-center gap-2 transition-transform hover:scale-105 cursor-pointer shadow-lg"
               >
                 ▶ View Projects
               </Button>
             </a>
             <Button
               size="lg"
-              className="bg-gray-600/50 text-white hover:bg-gray-600/70 font-semibold px-8 py-6 rounded-sm backdrop-blur-sm transition-transform hover:scale-105 cursor-pointer"
+              className="bg-gray-600/50 text-white hover:bg-gray-600/70 font-semibold px-8 py-6 rounded-sm backdrop-blur-sm transition-transform hover:scale-105 cursor-pointer shadow-lg"
             >
               ℹ Resume
             </Button>
           </motion.div>
 
           <motion.div variants={itemVariants} className="flex items-center gap-6">
-            <a href={DATA.socials.github} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
-              <Github className="w-6 h-6" />
+            <a href={DATA.socials.github} target="_blank" rel="noreferrer" className="text-gray-300 hover:text-primary transition-colors group">
+              <Github className="w-6 h-6 group-hover:scale-110 transition-transform" />
             </a>
-            <a href={DATA.socials.linkedin} target="_blank" rel="noreferrer" className="text-gray-400 hover:text-white transition-colors">
-              <Linkedin className="w-6 h-6" />
+            <a href={DATA.socials.linkedin} target="_blank" rel="noreferrer" className="text-gray-300 hover:text-primary transition-colors group">
+              <Linkedin className="w-6 h-6 group-hover:scale-110 transition-transform" />
             </a>
-            <a href={`mailto:${DATA.socials.email}`} className="text-gray-400 hover:text-white transition-colors">
-              <Mail className="w-6 h-6" />
+            <a href={`mailto:${DATA.socials.email}`} className="text-gray-300 hover:text-primary transition-colors group">
+              <Mail className="w-6 h-6 group-hover:scale-110 transition-transform" />
             </a>
           </motion.div>
         </motion.div>

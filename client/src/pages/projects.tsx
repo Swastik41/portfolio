@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Github, ArrowRight } from "lucide-react";
+import { ExternalLink, Github } from "lucide-react";
 import { DATA } from "@/lib/data";
 
 export default function Projects() {
@@ -23,28 +23,25 @@ export default function Projects() {
   };
 
   return (
-    <section className="section-container pt-32">
+    <section className="section-container pt-32 pb-20">
       {/* Page Header */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="mb-16"
+        className="mb-20 text-center"
       >
-        <div className="mb-6 flex items-center gap-3">
-          <div className="h-1 w-8 bg-primary"></div>
-          <h1 className="text-4xl md:text-5xl font-bold text-white">
-            Projects
-          </h1>
-        </div>
-        <p className="text-xl text-gray-400 max-w-2xl">
-          Explore my latest work and side projects. Each project demonstrates my skills in full-stack development.
+        <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
+          Projects
+        </h1>
+        <p className="text-xl text-gray-400 max-w-2xl mx-auto">
+          Explore my latest work. Each project demonstrates my skills in full-stack development.
         </p>
       </motion.div>
 
       {/* Projects Grid */}
       <motion.div
-        className="grid lg:grid-cols-2 gap-12"
+        className="grid md:grid-cols-2 gap-8"
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
@@ -54,41 +51,42 @@ export default function Projects() {
           <motion.div
             key={project.id}
             variants={itemVariants}
-            className="group bg-card/40 border border-gray-800 rounded-lg overflow-hidden hover:border-primary transition-all duration-300 hover:shadow-2xl hover:shadow-red-900/50"
+            whileHover={{ y: -8 }}
+            className="group bg-card/40 border border-gray-800 rounded-xl overflow-hidden hover:border-primary transition-all duration-300 hover:shadow-2xl hover:shadow-red-900/50"
           >
-            {/* Project Image */}
+            {/* Project Image - Large Top Section */}
             {project.image && (
-              <div className="relative h-64 overflow-hidden bg-gray-900">
+              <div className="relative h-56 overflow-hidden bg-gray-900">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 opacity-70 group-hover:opacity-100"
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300 opacity-80 group-hover:opacity-100"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                {/* Red accent line */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-primary" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent opacity-0 group-hover:opacity-60 transition-opacity" />
               </div>
             )}
             
             {/* Project Content */}
             <div className="p-8">
-              <div className="flex items-start justify-between mb-4">
-                <h3 className="text-2xl font-bold text-white group-hover:text-primary transition-colors flex-1">
-                  {project.title}
-                </h3>
-                <ArrowRight className="w-5 h-5 text-primary opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-1" />
-              </div>
+              {/* Title in Red/Primary */}
+              <h3 className="text-2xl font-bold text-primary mb-3 group-hover:text-red-400 transition-colors">
+                {project.title}
+              </h3>
               
-              <p className="text-gray-400 mb-6 leading-relaxed">
+              {/* Description */}
+              <p className="text-gray-300 text-sm leading-relaxed mb-6">
                 {project.description}
               </p>
 
-              {/* Tech Stack */}
-              <div className="mb-8">
-                <p className="text-sm text-gray-500 font-semibold mb-3">TECHNOLOGIES</p>
+              {/* Tech Stack Badges */}
+              <div className="mb-8 pb-8 border-t border-gray-800 pt-6">
                 <div className="flex flex-wrap gap-2">
                   {project.techStack.map((tech) => (
                     <span
                       key={tech}
-                      className="px-3 py-1.5 bg-gray-900 text-gray-300 text-xs rounded-full font-medium border border-gray-700 hover:border-primary hover:text-primary transition-colors"
+                      className="px-3 py-1.5 bg-gray-900/60 text-gray-200 text-xs rounded-full font-medium border border-gray-700 hover:border-primary hover:text-primary hover:bg-primary/10 transition-all cursor-default"
                     >
                       {tech}
                     </span>
@@ -96,18 +94,20 @@ export default function Projects() {
                 </div>
               </div>
 
-              {/* Links */}
-              <div className="flex items-center gap-6 pt-6 border-t border-gray-800">
+              {/* Action Links */}
+              <div className="flex items-center gap-6">
                 <a
                   href={project.liveUrl}
-                  className="flex items-center gap-2 text-white hover:text-primary transition-colors font-semibold group/link"
+                  className="flex items-center gap-2 text-primary hover:text-red-400 transition-colors font-semibold text-sm group/link"
+                  data-testid={`link-live-${project.id}`}
                 >
                   <ExternalLink className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                   Live Demo
                 </a>
                 <a
                   href={project.githubUrl}
-                  className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors font-semibold group/link"
+                  className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors font-semibold text-sm group/link"
+                  data-testid={`link-github-${project.id}`}
                 >
                   <Github className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
                   Code
@@ -124,19 +124,21 @@ export default function Projects() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
         viewport={{ once: true }}
-        className="mt-20 text-center"
+        className="mt-24 text-center bg-gradient-to-r from-card/40 to-primary/5 border border-gray-800 rounded-xl p-16"
       >
-        <p className="text-gray-400 mb-6">
-          Want to see more? Check out my GitHub for additional projects and contributions.
+        <h3 className="text-3xl font-bold text-white mb-4">
+          Want to see more?
+        </h3>
+        <p className="text-gray-300 mb-8 text-lg max-w-2xl mx-auto">
+          Check out my GitHub for additional projects, contributions, and open-source work.
         </p>
         <a
           href={DATA.socials.github}
           target="_blank"
           rel="noreferrer"
-          className="inline-flex items-center gap-2 text-primary hover:text-white transition-colors font-semibold"
+          className="inline-block bg-primary hover:bg-red-700 text-white font-bold px-8 py-3 rounded-sm transition-all hover:scale-105 active:scale-95"
         >
-          Visit GitHub
-          <ArrowRight className="w-4 h-4" />
+          Visit GitHub →
         </a>
       </motion.div>
     </section>
