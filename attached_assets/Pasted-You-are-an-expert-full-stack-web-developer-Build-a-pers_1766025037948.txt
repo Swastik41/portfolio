@@ -1,0 +1,139 @@
+You are an expert full-stack web developer. Build a personal portfolio website for a MERN stack developer in the style of Netflix’s web UI, but without using any Netflix trademarks, logos, or copyrighted images. Use only original assets, icons, and text.
+
+Goal
+
+Create a single-page React app (you can use Vite or CRA) that looks and feels like Netflix’s home screen: dark cinematic theme, hero banner at the top, and horizontal carousels of “cards” for my projects, certifications, and experience.
+
+Tech & structure
+
+Use React with modern functional components and hooks.
+
+Use responsive CSS (Flexbox and Grid) with a global dark theme similar to Netflix: deep dark background, subtle gradients, and accent red buttons.
+
+Use clean, reusable components (e.g., Navbar, HeroSection, Row, Card, Footer).
+
+No backend is required for now; hard-code data in a separate data.js file and map over it.
+
+Layout details (Netflix style)
+
+Navbar
+
+Left side: a custom text logo like “DevFlix” styled similarly to Netflix but clearly not using their logo.
+
+Right side: navigation links – “Home”, “Projects”, “Certifications”, “Experience”, “Contact”.
+
+Sticky at the top with a transparent-to-solid background on scroll.
+
+Hero section
+
+Full-width hero at the top with:
+
+Background image or gradient (no Netflix images).
+
+Title text like “MERN Stack Developer” and my name (use placeholders for now).
+
+Short tagline about building full-stack applications.
+
+Two CTA buttons styled like Netflix: a main red button (e.g., “View Projects”) and a secondary ghost button (e.g., “Download Resume”).
+
+Content rows (carousels)
+
+Multiple horizontal rows, each like a Netflix row:
+
+Row 1: “Featured Projects” – cards for 4–8 projects.
+
+Row 2: “All Projects” – more project cards.
+
+Row 3: “Certifications” – cards showing certificate name, org, date, and a “View Credential” button.
+
+Row 4: “Experience” – cards for roles, company, duration, and short description.
+
+Each row has a title on the left and a small description underneath.
+
+Cards should have hover effects (scale up slightly, show extra info on hover).
+
+Cards content (use placeholders)
+
+For projects, each card should include:
+
+Project title.
+
+Short description (2–3 lines).
+
+Tech stack badges (e.g., MongoDB, Express, React, Node).
+
+Buttons/links for “Live Demo” and “GitHub Repo”.
+
+For certifications, each card should include:
+
+Certification title.
+
+Issuing organization.
+
+Date earned.
+
+Optional “Verify” link.
+
+For experience, each card should include:
+
+Job title (e.g., “MERN Stack Developer”).
+
+Company name.
+
+Duration (e.g., “1 year”).
+
+Bullet summary of responsibilities.
+
+Contact section
+
+A section near the bottom with:
+
+Short text inviting recruiters or clients to contact.
+
+A simple contact form with name, email, and message fields.
+
+For now, just validate on the client and show a “Message sent (demo only)” toast or inline message when submitting. No backend.
+
+Footer
+
+Dark footer like Netflix: multiple small link groups (About, Contact, GitHub, LinkedIn).
+
+Centered copyright text.
+
+Behavior and polish
+
+Fully responsive: looks good on mobile, tablet, and desktop.
+
+Smooth hover transitions and subtle animations (e.g., fade-in rows on scroll).
+
+Implement keyboard navigation and basic accessibility (aria labels for major sections and buttons).
+
+Organize components and styles clearly so that I can easily replace placeholder data with my real projects, 3 certifications, and 1 year of experience.
+
+Deliverables
+
+Set up the full React project in Replit.
+
+Implement all components and styling.
+
+Populate data.js with clear placeholder entries for:
+
+At least 8 projects.
+
+3 certifications.
+
+1 experience entry with “1 year” duration.
+
+Include clear comments showing where to replace:
+
+My name.
+
+Project details.
+
+Certification details.
+
+Experience details.
+
+Contact links (GitHub, LinkedIn, email).
+
+If anything is ambiguous, choose defaults that best mimic a modern Netflix-like portfolio while avoiding any direct copying of Netflix’s exact branding or assets.
