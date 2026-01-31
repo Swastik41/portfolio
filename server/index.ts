@@ -13,6 +13,17 @@ declare module "http" {
   }
 }
 
+// CORS middleware
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  if (req.method === "OPTIONS") {
+    return res.sendStatus(200);
+  }
+  next();
+});
+
 app.use(
   express.json({
     verify: (req, _res, buf) => {
@@ -78,22 +89,11 @@ app.use((req, res, next) => {
     serveStatic(app);
   } else {
     const { setupVite } = await import("./vite");
-    await setupVite(httpServer, app);
+    await setupVite(app, httpServer);
   }
 
-  // ALWAYS serve the app on the port specified in the environment variable PORT
-  // Other ports are firewalled. Default to 5000 if not specified.
-  // this serves both the API and the client.
-  // It is the only port that is not firewalled.
-  const port = parseInt(process.env.PORT || "5000", 10);
-  const isWindows = process.platform === "win32";
-  const listenOptions = {
-    port,
-    host: isWindows ? "127.0.0.1" : "0.0.0.0",
-    ...(isWindows ? {} : { reusePort: true }),
-  };
-
-  httpServer.listen(listenOptions, () => {
-    log(`serving on port ${port}`);
+  const PORT = parseInt(process.env.PORT || "5000", 10);
+  httpServer.listen(PORT, "0.0.0.0", () => {
+    log(`serving on port ${PORT}`);
   });
 })();
