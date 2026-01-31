@@ -102,7 +102,7 @@ export default function Projects() {
                   data-testid={`link-live-${project.id}`}
                 >
                   <ExternalLink className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                  Live Demo
+                  Read More
                 </a>
                 <a
                   href={project.githubUrl}

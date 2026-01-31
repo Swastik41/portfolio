@@ -7,12 +7,15 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { NetflixIntro } from "@/components/netflix-intro";
+import { AIChatWidget } from "@/components/ai-chat-widget";
+import { VoiceCommands } from "@/components/voice-commands";
 import Home from "@/pages/index";
 import About from "@/pages/about";
 import Experience from "@/pages/experience";
 import Projects from "@/pages/projects";
 import Skills from "@/pages/skills";
 import Contact from "@/pages/contact";
+import Legal from "@/pages/legal";
 import NotFound from "@/pages/not-found";
 
 function Router() {
@@ -27,10 +30,13 @@ function Router() {
           <Route path="/projects" component={Projects} />
           <Route path="/skills" component={Skills} />
           <Route path="/contact" component={Contact} />
+          <Route path="/legal" component={Legal} />
           <Route component={NotFound} />
         </Switch>
       </main>
       <Footer />
+      <AIChatWidget />
+      <VoiceCommands />
     </>
   );
 }

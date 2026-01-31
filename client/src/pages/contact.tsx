@@ -3,9 +3,15 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { useToast } from "@/hooks/use-toast";
 import { DATA } from "@/lib/data";
-import { Mail, Github, Linkedin, MapPin, Phone, ArrowRight } from "lucide-react";
+import { Mail, Github, Linkedin, MapPin, Phone, ArrowRight, HelpCircle } from "lucide-react";
 
 export default function Contact() {
   const { toast } = useToast();
@@ -15,6 +21,33 @@ export default function Contact() {
     message: ""
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+
+  const faqs = [
+    {
+      question: "What technical services do you provide?",
+      answer: "I specialize in full-stack web development using the MERN stack (MongoDB, Express.js, React, Node.js). My expertise includes: scalable API design and development, responsive frontend architecture, database optimization, RESTful and GraphQL implementations, deployment automation, CI/CD pipeline configuration, and performance optimization."
+    },
+    {
+      question: "What is your typical response time?",
+      answer: "I typically respond to technical inquiries within 24 hours on business days. For time-sensitive projects or technical discussions, I'm available for priority communication. Please indicate urgency in your message."
+    },
+    {
+      question: "Do you work on freelance and full-time engagements?",
+      answer: "Yes, I'm available for both contract-based projects and permanent full-time opportunities. I'm particularly interested in roles involving MERN stack development, system architecture, and technical problem-solving. Let's discuss your requirements."
+    },
+    {
+      question: "How do you approach project pricing and estimation?",
+      answer: "Pricing is determined by project complexity, technical requirements, timeline, and scope. I provide detailed estimates after understanding your specifications. Contact me with your project brief for a comprehensive consultation and custom proposal."
+    },
+    {
+      question: "Do you provide post-launch support and maintenance?",
+      answer: "Absolutely. I offer maintenance packages including bug fixes, performance monitoring, dependency updates, security patches, and feature enhancements. We can establish support SLAs based on your application's criticality."
+    },
+    {
+      question: "What's your technology stack and expertise level?",
+      answer: "Proficient in: React, TypeScript, Node.js, Express.js, MongoDB, PostgreSQL, GraphQL, REST APIs, Tailwind CSS, Framer Motion, Docker, Git, AWS, and modern DevOps practices. I stay current with industry standards and best practices."
+    }
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -89,7 +122,7 @@ export default function Contact() {
           <div className="h-1 w-8 bg-primary"></div>
         </div>
         <p className="text-xl text-gray-400 max-w-2xl mx-auto">
-          Have a project in mind or just want to say hello? I'd love to hear from you. Reach out and let's create something amazing together.
+          Interested in discussing your technical requirements, project scope, or collaboration opportunities? I'm here to help. Let's explore how we can build robust, scalable solutions together.
         </p>
       </motion.div>
 
@@ -142,7 +175,7 @@ export default function Contact() {
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse"></div>
                 <p className="text-sm text-gray-400">
-                  Available for freelance & full-time projects
+                  Open to freelance projects & full-time opportunities
                 </p>
               </div>
             </div>
@@ -190,11 +223,11 @@ export default function Contact() {
 
           <div>
             <label htmlFor="message" className="text-sm font-semibold text-white block mb-3">
-              Message
+              Message / Project Details
             </label>
             <Textarea
               id="message"
-              placeholder="Tell me about your project or how I can help..."
+              placeholder="Describe your project requirements, technical stack, timeline, and goals..."
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
               required
@@ -212,7 +245,7 @@ export default function Contact() {
           </Button>
 
           <p className="text-xs text-gray-500 text-center">
-            I'll get back to you as soon as possible. Usually within 24 hours.
+            I'll review your inquiry and respond with technical insights within 24 business hours.
           </p>
         </motion.form>
       </div>
@@ -230,7 +263,7 @@ export default function Contact() {
             <Mail className="w-6 h-6 text-primary" />
           </div>
           <h4 className="text-lg font-bold text-white mb-2">Email</h4>
-          <p className="text-gray-400">Best for general inquiries</p>
+          <p className="text-gray-400">Professional inquiries & project discussions</p>
         </div>
 
         <div className="bg-card/40 border border-gray-800 rounded-lg p-8 text-center hover:border-primary transition-all">
@@ -238,7 +271,7 @@ export default function Contact() {
             <Github className="w-6 h-6 text-primary" />
           </div>
           <h4 className="text-lg font-bold text-white mb-2">GitHub</h4>
-          <p className="text-gray-400">Check my code and projects</p>
+          <p className="text-gray-400">Review my codebase and contributions</p>
         </div>
 
         <div className="bg-card/40 border border-gray-800 rounded-lg p-8 text-center hover:border-primary transition-all">
@@ -246,7 +279,47 @@ export default function Contact() {
             <Linkedin className="w-6 h-6 text-primary" />
           </div>
           <h4 className="text-lg font-bold text-white mb-2">LinkedIn</h4>
-          <p className="text-gray-400">Professional networking</p>
+          <p className="text-gray-400">Career opportunities & networking</p>
+        </div>
+      </motion.div>
+
+      {/* FAQ Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.6 }}
+        viewport={{ once: true }}
+        className="mt-20"
+      >
+        <div className="text-center mb-12">
+          <div className="inline-flex items-center justify-center gap-3 mb-4">
+            <HelpCircle className="w-8 h-8 text-primary" />
+            <h2 className="text-3xl md:text-4xl font-bold text-white">
+              Technical FAQs
+            </h2>
+          </div>
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Quick answers to common technical and professional questions. Have additional questions? Let's connect!
+          </p>
+        </div>
+
+        <div className="max-w-3xl mx-auto">
+          <Accordion type="single" collapsible className="space-y-4">
+            {faqs.map((faq, index) => (
+              <AccordionItem
+                key={index}
+                value={`item-${index}`}
+                className="bg-card/40 border border-gray-800 rounded-lg px-6 hover:border-primary/50 transition-all"
+              >
+                <AccordionTrigger className="text-left text-white hover:text-primary hover:no-underline py-6">
+                  <span className="font-semibold">{faq.question}</span>
+                </AccordionTrigger>
+                <AccordionContent className="text-gray-400 pb-6 leading-relaxed">
+                  {faq.answer}
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </div>
       </motion.div>
     </section>

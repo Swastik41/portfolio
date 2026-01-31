@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Building2, Calendar } from "lucide-react";
-import { DATA } from "@/lib/data";
+import { DATA, calculateDuration } from "@/lib/data";
 
 export function ExperienceSection() {
   return (
@@ -35,7 +35,7 @@ export function ExperienceSection() {
             <p className="text-primary font-semibold mb-1">{exp.company}</p>
             <div className="flex items-center gap-2 text-sm text-gray-400 mb-4">
               <Calendar className="w-4 h-4" />
-              <span>{exp.duration}</span>
+              <span>{calculateDuration(exp.startDate, exp.endDate)}</span>
             </div>
             <ul className="space-y-2">
               {exp.bullets.map((bullet, i) => (

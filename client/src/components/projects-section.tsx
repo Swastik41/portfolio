@@ -85,7 +85,7 @@ export function ProjectsSection() {
                   className="flex items-center gap-2 text-white hover:text-primary transition-colors text-sm font-semibold"
                 >
                   <ExternalLink className="w-4 h-4" />
-                  Live
+                  Read More
                 </a>
                 <a
                   href={project.githubUrl}

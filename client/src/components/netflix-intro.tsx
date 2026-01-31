@@ -67,7 +67,7 @@ export function NetflixIntro({ onComplete }: NetflixIntroProps) {
             XVerse
           </p>
           <p className="text-gray-400 text-sm md:text-base">
-            Portfolio Experience
+            Welcome to My World
           </p>
         </motion.div>
 

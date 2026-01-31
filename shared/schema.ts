@@ -51,18 +51,18 @@ export const insertProjectSchema = createInsertSchema(projects).omit({
 }) as any;
 
 export const insertExperienceSchema = createInsertSchema(experience).omit({
-  id: true,
-  createdAt: true,
+  id: true as const,
+  createdAt: true as const,
 }) as any;
 
 export const insertSkillSchema = createInsertSchema(skills).omit({
-  id: true,
-  createdAt: true,
+  id: true as const,
+  createdAt: true as const,
 }) as any;
 
 export const insertContactMessageSchema = createInsertSchema(contactMessages).omit({
-  id: true,
-  createdAt: true,
+  id: true as const,
+  createdAt: true as const,
 }) as any;
 
 // Types

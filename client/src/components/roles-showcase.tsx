@@ -62,7 +62,7 @@ export function RolesShowcase() {
         className="text-center mb-20"
       >
         <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">
-          Who's Watching?
+          Whose Profile You Are Exploring?
         </h2>
         <p className="text-xl text-gray-400">
           Different facets of my professional identity

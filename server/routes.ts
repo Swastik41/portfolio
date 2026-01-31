@@ -1,6 +1,7 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
 import { storage } from "./storage";
+import { sendContactEmail } from "./email";
 import { 
   insertProjectSchema,
   insertExperienceSchema,
@@ -116,6 +117,15 @@ export async function registerRoutes(
     try {
       const data = insertContactMessageSchema.parse(req.body);
       const message = await storage.createContactMessage(data);
+      
+      // Send email notification
+      try {
+        await sendContactEmail(data.name, data.email, data.message);
+      } catch (emailError) {
+        console.error("Failed to send email notification:", emailError);
+        // Continue even if email fails
+      }
+      
       res.status(201).json(message);
     } catch (error: any) {
       res.status(400).json({ message: error.message || "Invalid message data" });

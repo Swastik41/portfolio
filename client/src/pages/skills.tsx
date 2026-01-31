@@ -14,11 +14,46 @@ import {
 
 const skillCategories = [
   {
-    title: "React",
+    title: "Frontend",
     skills: [
+      {
+        name: "TypeScript",
+        description: "Typed JavaScript superset",
+        icon: Code2
+      },
       {
         name: "React",
         description: "Modern web interfaces",
+        icon: Code2
+      },
+      {
+        name: "Vue.js",
+        description: "Progressive JavaScript framework",
+        icon: Code2
+      },
+      {
+        name: "Angular",
+        description: "TypeScript-based web apps",
+        icon: Code2
+      },
+      {
+        name: "Svelte",
+        description: "Reactive web apps",
+        icon: Code2
+      },
+      {
+        name: "Tailwind CSS",
+        description: "Utility-first CSS framework",
+        icon: Code2
+      },
+      {
+        name: "Next.js",
+        description: "React framework for production",
+        icon: Code2
+      },
+      {
+        name: "Framer Motion",
+        description: "Animation library for React",
         icon: Code2
       }
     ]
@@ -40,11 +75,36 @@ const skillCategories = [
         name: "Flask",
         description: "Lightweight Python framework",
         icon: Package
-      }
+      },
+      {
+        name: "Express.js",
+        description: "Fast, unopinionated web framework",
+        icon: Server
+      },
+      {
+        name: "GraphQL",
+        description: "API query language",
+        icon: Server
+      },
+      {
+        name: "REST APIs",
+        description: "Representational State Transfer",
+        icon: Server
+      },
+      {
+        name: "PostgreSQL",
+        description: "Relational database",
+        icon: Database
+      },
+      {
+        name: "Firebase",
+        description: "Backend-as-a-Service",
+        icon: Database
+      },
     ]
   },
   {
-    title: "ML/AI",
+    title: "AI/ML",
     skills: [
       {
         name: "TensorFlow",
@@ -75,6 +135,11 @@ const skillCategories = [
         name: "MySQL",
         description: "Relational database",
         icon: Database
+      },
+      {
+        name: "SQLite",
+        description: "Lightweight database",
+        icon: Database
       }
     ]
   },
@@ -85,6 +150,26 @@ const skillCategories = [
         name: "Container",
         description: "Containerization",
         icon: Container
+      },
+      {  
+        name: "Kubernetes",
+        description: "Container orchestration",
+        icon: Container
+      },
+      {
+        name: "AWS",
+        description: "Cloud computing services",
+        icon: Container
+      },
+      {
+        name: "CI/CD",
+        description: "Continuous Integration/Delivery",
+        icon: Container
+      },
+      {
+        name: "Docker",
+        description: "Container platform",
+        icon: Container
       }
     ]
   },
@@ -92,14 +177,64 @@ const skillCategories = [
     title: "Tools",
     skills: [
       {
-        name: "Git",
-        description: "Version control",
+        name: "Git & GitHub",
+        description: "Version control system and code hosting platform",
         icon: GitBranch
       },
       {
         name: "Figma",
         description: "UI/UX design",
         icon: Figma
+      },
+      {        
+        name: "VS Code",
+        description: "Code editor",
+        icon: Code2
+      },
+      {
+        name: "GitHub",
+        description: "Code hosting platform",
+        icon: GitBranch
+      },
+      {
+        name: "Vercel",
+        description: "Frontend deployment",
+        icon: Zap
+      },
+      {
+        name: "Netlify",
+        description: "Web hosting service",
+        icon: Zap
+      },
+      {
+        name: "Jenkins",
+        description: "Automation server",
+        icon: Zap
+      },
+      {
+        name: "Postman",
+        description: "API testing tool",
+        icon: Zap
+      },
+      {
+        name: "Webpack",
+        description: "Module bundler",
+        icon: Zap
+      },
+      {
+        name: "Babel",
+        description: "JavaScript compiler",
+        icon: Zap
+      },
+      {
+        name: "ESLint",
+        description: "JavaScript linter",
+        icon: Zap
+      },
+      {
+        name: "Prettier",
+        description: "Code formatter",
+        icon: Zap
       }
     ]
   }

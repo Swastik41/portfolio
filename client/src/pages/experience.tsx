@@ -1,26 +1,34 @@
 import { motion } from "framer-motion";
 import { Building2, Calendar, ChevronRight, GraduationCap } from "lucide-react";
-import { DATA } from "@/lib/data";
+import { DATA, calculateDuration } from "@/lib/data";
 
 // Education data (placeholder - update as needed)
 const education = [
   {
     id: 1,
-    degree: "Bachelor of Science in Computer Science",
-    school: "University Name",
-    duration: "2020 - 2024",
-    startDate: "2020",
-    endDate: "2024",
-    description: "Focused on software engineering, algorithms, and data structures"
+    degree: "Postgraduate Degree in Information Technology",
+    school: "Conestoga College",
+    duration: "September 2024 - December 2025",
+    startDate: "2024",
+    endDate: "2025",
+    bullets: [
+      "Advanced studies in modern software development practices and emerging technologies",
+      "Focus on cloud computing, AI integration, and automation workflows",
+      "Hands-on experience with industry-standard development tools and frameworks"
+    ]
   },
   {
     id: 2,
-    degree: "High School Diploma",
-    school: "High School Name",
-    duration: "2016 - 2020",
-    startDate: "2016",
-    endDate: "2020",
-    description: "Strong foundation in mathematics and science"
+    degree: "Bachelor of Engineering in Information Technology",
+    school: "Gujarat Technological University (GTU)",
+    duration: "January 2019 - May 2023",
+    startDate: "2019",
+    endDate: "2023",
+    bullets: [
+      "Comprehensive foundation in software engineering and web development",
+      "Specialized in database management, algorithms, and data structures",
+      "Strong focus on Object-Oriented Programming principles and design patterns"
+    ]
   }
 ];
 
@@ -109,7 +117,7 @@ export default function Experience() {
                     </div>
                     <div className="flex items-center gap-2 text-sm text-gray-400 bg-gray-900/50 px-4 py-2 rounded-full">
                       <Calendar className="w-4 h-4" />
-                      <span>{exp.duration}</span>
+                      <span>{calculateDuration(exp.startDate, exp.endDate)}</span>
                     </div>
                   </div>
 
@@ -186,7 +194,9 @@ export default function Experience() {
 
                 {/* Description */}
                 <p className="text-gray-300">
-                  {edu.description}
+                  {edu.bullets.map((point, i) => (
+                    <span key={i} className="block mb-2">• {point}</span>
+                  ))}
                 </p>
               </div>
             </motion.div>
