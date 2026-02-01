@@ -22,24 +22,35 @@ export function ContactSection() {
 
     try {
       console.log("Submitting form data:", formData);
-      const response = await fetch("/api/contact", {
+      
+      // Using Web3Forms - Free form backend service
+      // Get your access key from: https://web3forms.com
+      const web3formsKey = import.meta.env.VITE_WEB3FORMS_KEY || "bc68a3af-d43e-4c81-b5d3-b7b8e4ce0849";
+      
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Accept": "application/json"
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          access_key: web3formsKey,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Portfolio Contact: Message from ${formData.name}`,
+          from_name: "Portfolio Contact Form",
+        }),
       });
 
       console.log("Response status:", response.status);
       
-      if (!response.ok) {
-        const error = await response.json();
-        console.error("Server error:", error);
-        throw new Error(error.message || "Failed to send message");
-      }
-
       const result = await response.json();
-      console.log("Success result:", result);
+      console.log("Response result:", result);
+      
+      if (!result.success) {
+        throw new Error(result.message || "Failed to send message");
+      }
 
       toast({
         title: "Message Sent!",
