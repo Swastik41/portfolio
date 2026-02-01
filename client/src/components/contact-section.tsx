@@ -25,7 +25,7 @@ export function ContactSection() {
       
       // Using Web3Forms - Free form backend service
       // Get your access key from: https://web3forms.com
-      const web3formsKey = import.meta.env.VITE_WEB3FORMS_KEY || "bc68a3af-d43e-4c81-b5d3-b7b8e4ce0849";
+      const web3formsKey = import.meta.env.VITE_WEB3FORMS_KEY || "03f03a5e-bb7b-4d43-ba9a-1d30df7d593c";
       
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
