@@ -54,14 +54,28 @@ export default function Contact() {
     setIsSubmitting(true);
     
     try {
-      const apiBase = (import.meta.env.VITE_API_URL || "").replace(/\/$/, "");
-      const response = await fetch(`${apiBase}/api/contact`, {
+      // Using Web3Forms - Free form backend service
+      const web3formsKey = import.meta.env.VITE_WEB3FORMS_KEY || "03f03a5e-bb7b-4d43-ba9a-1d30df7d593c";
+      
+      const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
+        headers: {
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          access_key: web3formsKey,
+          name: formData.name,
+          email: formData.email,
+          message: formData.message,
+          subject: `Portfolio Contact: Message from ${formData.name}`,
+          from_name: "Portfolio Contact Form",
+        }),
       });
 
-      if (response.ok) {
+      const result = await response.json();
+
+      if (result.success) {
         toast({
           title: "Message Sent!",
           description: "Thanks for reaching out. I'll get back to you soon.",
@@ -70,7 +84,7 @@ export default function Contact() {
       } else {
         toast({
           title: "Error",
-          description: "Failed to send message. Please try again.",
+          description: result.message || "Failed to send message. Please try again.",
           variant: "destructive"
         });
       }
