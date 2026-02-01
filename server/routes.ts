@@ -115,12 +115,17 @@ export async function registerRoutes(
   // Contact Messages routes
   app.post("/api/contact", async (req, res) => {
     try {
+      console.log("Received contact form data:", req.body);
       const data = insertContactMessageSchema.parse(req.body);
+      console.log("Validated data:", data);
+      
       const message = await storage.createContactMessage(data);
+      console.log("Saved to database:", message);
       
       // Send email notification
       try {
         await sendContactEmail(data.name, data.email, data.message);
+        console.log("Email sent successfully");
       } catch (emailError) {
         console.error("Failed to send email notification:", emailError);
         // Continue even if email fails
@@ -128,6 +133,7 @@ export async function registerRoutes(
       
       res.status(201).json(message);
     } catch (error: any) {
+      console.error("Contact form error:", error);
       res.status(400).json({ message: error.message || "Invalid message data" });
     }
   });

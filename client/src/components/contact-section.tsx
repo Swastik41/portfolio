@@ -21,6 +21,7 @@ export function ContactSection() {
     setIsSubmitting(true);
 
     try {
+      console.log("Submitting form data:", formData);
       const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
@@ -29,10 +30,16 @@ export function ContactSection() {
         body: JSON.stringify(formData),
       });
 
+      console.log("Response status:", response.status);
+      
       if (!response.ok) {
         const error = await response.json();
+        console.error("Server error:", error);
         throw new Error(error.message || "Failed to send message");
       }
+
+      const result = await response.json();
+      console.log("Success result:", result);
 
       toast({
         title: "Message Sent!",
@@ -40,6 +47,7 @@ export function ContactSection() {
       });
       setFormData({ name: "", email: "", message: "" });
     } catch (error: any) {
+      console.error("Form submission error:", error);
       toast({
         title: "Error",
         description: error.message || "Failed to send message. Please try again.",
