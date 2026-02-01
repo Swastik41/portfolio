@@ -98,6 +98,15 @@ export const DATA = {
     },
     {
       id: 2,
+      title: "DriveTest Appointment System",
+      description: "A comprehensive full-stack web application that simulates and manages driver's license testing appointments, similar to Ontario's DriveTest Service. Features appointment scheduling, multiple user roles (Drivers, Examiners, Admins), test management, and secure credential handling with 41 comprehensive test cases.",
+      techStack: ["Node.js", "Express.js", "MongoDB", "EJS", "Bootstrap", "bcrypt", "Mongoose"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/Swastik41/DriveTest-Appointment-System",
+      image: "https://images.unsplash.com/photo-1531482615713-2afd69097998?w=800&q=80"
+    },
+    {
+      id: 3,
       title: "Task Manager with GraphQL & React",
       description: "A robust, business-ready full-stack Task Management solution engineered with React, GraphQL, Node.js, and MongoDB. Demonstrates best practices in UI/UX, component-based architecture, and GraphQL API development.",
       techStack: ["React", "GraphQL", "Node.js", "MongoDB", "Apollo", "JavaScript"],
@@ -106,7 +115,7 @@ export const DATA = {
       image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80"
     },
     {
-      id: 3,
+      id: 4,
       title: "Fitness Tracker",
       description: "An interactive web-based application designed to help users monitor and improve their fitness by tracking BMI, heart rate (BPM), step count, and more. Features interactive image gallery and theme toggle (light/dark mode).",
       techStack: ["HTML", "CSS", "JavaScript", "LocalStorage", "Charts"],
@@ -115,7 +124,7 @@ export const DATA = {
       image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80"
     },
     {
-      id: 4,
+      id: 5,
       title: "Grind IT - Basketball Shooting Machine",
       description: "A responsive website project designed to showcase the Grind IT Basketball Shooting Machine, including product details, training tips, and SEO optimization elements.",
       techStack: ["HTML", "CSS", "JavaScript", "Responsive Design", "SEO"],
@@ -124,14 +133,14 @@ export const DATA = {
       image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80"
     },
     {
-      id: 5,
+      id: 6,
       title: "House Price Prediction",
       description: "A data science project for predicting house prices using machine learning algorithms with comprehensive datasets and analysis.",
       techStack: ["Python", "Machine Learning", "Data Science", "Pandas", "Scikit-learn"],
       liveUrl: "#",
       githubUrl: "https://github.com/Swastik41/House-Price-Prediction",
       image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&q=80"
-    }
+    },
   ],
 
   experience: [
