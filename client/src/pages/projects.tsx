@@ -97,14 +97,6 @@ export default function Projects() {
               {/* Action Links */}
               <div className="flex items-center gap-6">
                 <a
-                  href={project.liveUrl}
-                  className="flex items-center gap-2 text-primary hover:text-red-400 transition-colors font-semibold text-sm group/link"
-                  data-testid={`link-live-${project.id}`}
-                >
-                  <ExternalLink className="w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                  Read More
-                </a>
-                <a
                   href={project.githubUrl}
                   className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors font-semibold text-sm group/link"
                   data-testid={`link-github-${project.id}`}

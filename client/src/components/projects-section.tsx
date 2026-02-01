@@ -81,13 +81,6 @@ export function ProjectsSection() {
 
               <div className="flex items-center gap-4">
                 <a
-                  href={project.liveUrl}
-                  className="flex items-center gap-2 text-white hover:text-primary transition-colors text-sm font-semibold"
-                >
-                  <ExternalLink className="w-4 h-4" />
-                  Read More
-                </a>
-                <a
                   href={project.githubUrl}
                   className="flex items-center gap-2 text-gray-400 hover:text-primary transition-colors text-sm font-semibold"
                 >
