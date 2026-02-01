@@ -26,7 +26,7 @@ export function Footer() {
             <span className="inline-block w-3 h-3 bg-green-500 rounded-full animate-pulse"></span>
           </div>
           <p className="text-white font-semibold">Currently Available</p>
-          <p className="text-gray-400 text-sm">Open to remote roles & freelance projects. Based in {DATA.location}</p>
+          <p className="text-gray-400 text-sm">Open to Full Time | Remote Roles & Freelance Projects. Based in {DATA.location}</p>
           <p className="text-gray-500 text-xs mt-2">⏱️ Average response time: 24 hours</p>
         </motion.div>
 
