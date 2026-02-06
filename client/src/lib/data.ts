@@ -107,6 +107,24 @@ export const DATA = {
     },
     {
       id: 3,
+      title: "TechLogic E-Commerce",
+      description: "A professional, feature-rich e-commerce web application built with ASP.NET Web Forms and modern web technologies. Demonstrates full-stack development skills including backend architecture, database design, responsive UI/UX, and payment processing integration.",
+      techStack: ["ASP.NET", "JavaScript", "SQL Server", "Bootstrap", "Web Forms", "Payment Gateway"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/Swastik41/TechLogic-Ecommerce",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=80"
+    },
+    {
+      id: 4,
+      title: "FreshMart Grocery Application",
+      description: "FreshMart is a modern e-commerce platform featuring comprehensive product management, shopping cart functionality, order processing, and a professional admin dashboard. The application demonstrates enterprise-grade architecture with robust error handling, extensive logging, and security-first design principles.",
+      techStack: ["HTML", "CSS", "JavaScript", "Node.js", "Express", "MongoDB"],
+      liveUrl: "#",
+      githubUrl: "https://github.com/Swastik41/Freshmart-Grocery-Application",
+      image: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&q=80"
+    },
+    {
+      id: 5,
       title: "Task Manager with GraphQL & React",
       description: "A robust, business-ready full-stack Task Management solution engineered with React, GraphQL, Node.js, and MongoDB. Demonstrates best practices in UI/UX, component-based architecture, and GraphQL API development.",
       techStack: ["React", "GraphQL", "Node.js", "MongoDB", "Apollo", "JavaScript"],
@@ -115,7 +133,7 @@ export const DATA = {
       image: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=800&q=80"
     },
     {
-      id: 4,
+      id: 6,
       title: "Fitness Tracker",
       description: "An interactive web-based application designed to help users monitor and improve their fitness by tracking BMI, heart rate (BPM), step count, and more. Features interactive image gallery and theme toggle (light/dark mode).",
       techStack: ["HTML", "CSS", "JavaScript", "LocalStorage", "Charts"],
@@ -124,7 +142,7 @@ export const DATA = {
       image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=800&q=80"
     },
     {
-      id: 5,
+      id: 7,
       title: "Grind IT - Basketball Shooting Machine",
       description: "A responsive website project designed to showcase the Grind IT Basketball Shooting Machine, including product details, training tips, and SEO optimization elements.",
       techStack: ["HTML", "CSS", "JavaScript", "Responsive Design", "SEO"],
@@ -133,7 +151,7 @@ export const DATA = {
       image: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=800&q=80"
     },
     {
-      id: 6,
+      id: 8,
       title: "House Price Prediction",
       description: "A data science project for predicting house prices using machine learning algorithms with comprehensive datasets and analysis.",
       techStack: ["Python", "Machine Learning", "Data Science", "Pandas", "Scikit-learn"],
