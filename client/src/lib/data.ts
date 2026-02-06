@@ -118,7 +118,7 @@ export const DATA = {
       id: 4,
       title: "FreshMart Grocery Application",
       description: "FreshMart is a modern e-commerce platform featuring comprehensive product management, shopping cart functionality, order processing, and a professional admin dashboard. The application demonstrates enterprise-grade architecture with robust error handling, extensive logging, and security-first design principles.",
-      techStack: ["HTML", "CSS", "JavaScript", "Node.js", "Express", "MongoDB"],
+      techStack: [".NET Core", "MVC", "Entity Framework", "HTML", "CSS", "JavaScript", "Node.js", "Express", "MongoDB", "Bootstrap"],
       liveUrl: "#",
       githubUrl: "https://github.com/Swastik41/Freshmart-Grocery-Application",
       image: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&q=80"
